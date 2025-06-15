@@ -1,0 +1,16 @@
+
+/* Walid Mouhab | June 15, 2025 */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f8ff;
+  color: #333;
+  text-align: center;
+  margin-top: 50px;
+}
+p {
+  padding: 10px;
+  border: 1px solid #ccc;
+  width: 60%;
+  margin: 10px auto;
+  background-color: #fff;
+}
