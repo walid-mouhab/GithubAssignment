@@ -19,3 +19,6 @@ document.getElementById("p4").textContent = myNameAddNum;
 let myNameMultNum = myName * n1;
 document.getElementById("p5").textContent = myNameMultNum;
 ////////////
+let myage = 32;
+let ageCompare = (myage < numberMult);
+document.getElementById("p6").textContent = ageCompare;
