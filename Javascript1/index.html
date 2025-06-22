@@ -1,1 +1,52 @@
 
+
+<!--
+   Walid Mouhab
+  June 22, 2025
+  Description: Analog clock with dynamic background, temperature, and tick sound
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JS + CSS Clock</title>
+  <link rel="icon" href="https://fav.farm/✅" />
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+ <div class="clock">
+   
+    <div class="number" style="left:91.0%; top:50.0%; transform: translate(-50%, -50%);">3</div>
+    <div class="number" style="left:84.2%; top:71.0%; transform: translate(-50%, -50%);">4</div>
+    <div class="number" style="left:71.0%; top:84.2%; transform: translate(-50%, -50%);">5</div>
+    <div class="number" style="left:50.0%; top:91.0%; transform: translate(-50%, -50%);">6</div>
+    <div class="number" style="left:29.0%; top:84.2%; transform: translate(-50%, -50%);">7</div>
+    <div class="number" style="left:15.8%; top:71.0%; transform: translate(-50%, -50%);">8</div>
+    <div class="number" style="left:9.0%; top:50.0%; transform: translate(-50%, -50%);">9</div>
+    <div class="number" style="left:15.8%; top:29.0%; transform: translate(-50%, -50%);">10</div>
+    <div class="number" style="left:29.0%; top:15.8%; transform: translate(-50%, -50%);">11</div>
+    <div class="number" style="left:50.0%; top:9.0%; transform: translate(-50%, -50%);">12</div>
+    <div class="number" style="left:71.0%; top:15.8%; transform: translate(-50%, -50%);">1</div>
+    <div class="number" style="left:84.2%; top:29.0%; transform: translate(-50%, -50%);">2</div>
+
+    <div class="hand hour-hand" id="hour-hand"></div>
+    <div class="hand min-hand" id="minute-hand"></div>
+    <div class="hand second-hand" id="second-hand"></div>
+	
+	
+    <div class="center-dot"></div>
+  </div>
+
+  <div class="info" id="date">Loading date...</div>
+  <div class="info" id="temp">Loading current temperature ...</div>
+ 
+
+  <audio id="tick-sound" src="tick.mp3" preload="auto"></audio>
+
+ <script src="script.js"></script>
+
+</body>
+</html>
+   
