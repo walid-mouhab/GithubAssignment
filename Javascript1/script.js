@@ -50,11 +50,11 @@ function showCurrentDate() {
 function updateBackground(hour) {
   const body = document.body;
   if (hour >= 6 && hour < 12) {
-    body.style.backgroundImage = "url('morning.jpg')";
+    body.style.backgroundImage = "url('morning.jpg')";  // image from https://www.pexels.com/photo/photo-of-lake-552788/
   } else if (hour >= 12 && hour < 18) {
-    body.style.backgroundImage = "url('afternoon.jpg')";
+    body.style.backgroundImage = "url('afternoon.jpg')"; // image from  https://www.pexels.com/photo/winding-road-photography-1133505/ 
   } else {
-    body.style.backgroundImage = "url('night.jpg')";
+    body.style.backgroundImage = "url('night.jpg')"; // image from  https://www.pexels.com/photo/photography-of-green-grass-field-955657/ 
   }
 }
 
