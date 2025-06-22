@@ -1,7 +1,14 @@
 /*
   Walid Mouhab
   June 22, 2025
-  Description: Clock logic, background, temperature, and tick sound
+  Description: CSS for analog clock layout, styling, and responsiveness.
+  Features:
+    - Centered, large-sized clock face with a transparent border to highlight the background
+    - Hour, minute, and second hands styled and smoothly animated
+    - Dynamic background image support for morning, afternoon, and night
+    - Responsive layout using viewport units for compatibility across devices
+ Adapted from:
+    - Wes Bos' JavaScript30 Clock Project (https://github.com/wesbos/JavaScript30)
 */
 
 body {
@@ -36,11 +43,6 @@ body {
   transform-origin: 0% 50%;
   transition: transform 0.05s cubic-bezier(0.1,2.7,0.58,1);
 }
-
-
-
-
-
 
 .hour-hand {
   width: 35%;
