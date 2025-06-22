@@ -1,9 +1,18 @@
+/*
+  Walid Mouhab  
+  June 22, 2025  
+  Description: Clock logic, background, temperature, and ticking sound  
+  Adapted from Wes Bos' JavaScript30: https://github.com/wesbos/JavaScript30  
+*/
 const secondHand = document.querySelector('.second-hand');
 const minsHand = document.querySelector('.min-hand');
 const hourHand = document.querySelector('.hour-hand');
 const tickSound = document.getElementById('tick-sound');
 
-// Clock function
+/*
+  Updates the rotation of each clock hand every second.
+  Adds a ticking sound for realism.
+*/
 function setDate() {
   const now = new Date();
 
@@ -18,19 +27,26 @@ function setDate() {
   const hour = now.getHours();
   const hourDegrees = ((hour / 12) * 360) + ((mins / 60) * 30) - 90;
   hourHand.style.transform = `rotate(${hourDegrees}deg)`;
+   // Play tick
   tickSound.currentTime = 0;
   tickSound.play();
 
 }
 
-// Show date ---- new 
+/*
+  Displays current date in a readable format.
+  Help from: https://www.youtube.com/watch?v=Mn3ehaH0a8g
+*/
 function showCurrentDate() {
   const now = new Date();
   const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
   document.getElementById("date").textContent = now.toLocaleDateString('en-US', options);
 }
 
-// Background based on time--- new 
+/*
+  Updates the background based on the current hour.
+  Help from: https://www.youtube.com/watch?v=Mn3ehaH0a8g
+*/
 function updateBackground(hour) {
   const body = document.body;
   if (hour >= 6 && hour < 12) {
@@ -42,8 +58,10 @@ function updateBackground(hour) {
   }
 }
 
-// Temperature---- new 
-// Temperature — display in °F
+/*
+  Fetches the current temperature and displays it in °F.
+  Help from: https://www.shecodes.io/athena/40467-how-to-log-the-current-temperature-with-latitude-and-longitude-in-javascript
+*/
 async function updateTemperature() {
   try {
     const res = await fetch(
@@ -53,7 +71,7 @@ async function updateTemperature() {
     const data = await res.json();
     const tempC = data.current_weather.temperature;
     // Convert to Fahrenheit
-    const tempF = (tempC * 9/5) + 32;
+    const tempF = (tempC * 9/5) + 32;  // change C to F 
     document.getElementById("temp").textContent =
       `Temperature: ${tempF.toFixed(1)}°F`;
   } catch (err) {
@@ -62,7 +80,7 @@ async function updateTemperature() {
 }
 
 
-
+// Initialize everything 
 setInterval(setDate, 1000);
 setDate();
 showCurrentDate();
