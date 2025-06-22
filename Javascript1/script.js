@@ -55,10 +55,11 @@ function showCurrentDate() {
 function updateBackground(hour) {
   const body = document.body;
   if (hour >= 6 && hour < 12) {
-    body.style.backgroundImage = "url('morning.jpg')"; 
-    body.style.backgroundImage = "url('afternoon.jpg')"; 
+    body.style.backgroundImage = "url('morning.jpg')";
+  } else if (hour >= 12 && hour < 18) {
+    body.style.backgroundImage = "url('afternoon.jpg')";
   } else {
-    body.style.backgroundImage = "url('night.jpg')"; 
+    body.style.backgroundImage = "url('night.jpg')";
   }
 }
 
