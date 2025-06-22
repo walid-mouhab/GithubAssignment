@@ -89,8 +89,8 @@ async function updateTemperature() {
 setInterval(setDate, 1000);
 setDate();
 showCurrentDate();
-updateTemperature();// for changing the background
-const now = new Date();// for changing the background
+updateTemperature();
+const now = new Date();
 updateBackground(now.getHours());
 
 
