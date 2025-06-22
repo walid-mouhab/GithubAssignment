@@ -46,15 +46,19 @@ function showCurrentDate() {
 /*
   Updates the background based on the current hour.
   Help from: https://www.youtube.com/watch?v=Mn3ehaH0a8g
+
+  Background image sources:
+  - morning.jpg: https://www.pexels.com/photo/photo-of-lake-552788/
+  - afternoon.jpg: https://www.pexels.com/photo/winding-road-photography-1133505/
+  - night.jpg: https://www.pexels.com/photo/photography-of-green-grass-field-955657/
 */
 function updateBackground(hour) {
   const body = document.body;
   if (hour >= 6 && hour < 12) {
-    body.style.backgroundImage = "url('morning.jpg')";  // image from https://www.pexels.com/photo/photo-of-lake-552788/
-  } else if (hour >= 12 && hour < 18) {
-    body.style.backgroundImage = "url('afternoon.jpg')"; // image from  https://www.pexels.com/photo/winding-road-photography-1133505/ 
+    body.style.backgroundImage = "url('morning.jpg')"; 
+    body.style.backgroundImage = "url('afternoon.jpg')"; 
   } else {
-    body.style.backgroundImage = "url('night.jpg')"; // image from  https://www.pexels.com/photo/photography-of-green-grass-field-955657/ 
+    body.style.backgroundImage = "url('night.jpg')"; 
   }
 }
 
