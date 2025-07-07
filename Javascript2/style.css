@@ -1,16 +1,24 @@
 /* 
-  Animal Sound Drum Kit
-  Author: Walid Mouhab
-  Date: July 6, 2025
+  Walid Mouhab  
+  07/06/2025 
+  Animal Sound Drum Kit - style.css
+  Adapted from Wes Bos' JavaScript30: https://github.com/wesbos/JavaScript30
+
+  What I Improved in the CSS:
+  - Replaced the dark studio background with an African nature photo 
+  - Centered and styled the title and subtitle section with shadow and rounded box
+  - Added animal icon images (with .animal-icon class) to each key
+  - Made the layout responsive using media queries
+  - Increased the size of keys and icons for better mobile and visual experience
+  - Changed the look of the key hover and playing animations for a softer feel
 */
+
 
 html {
   font-size: 10px;
   background: url('background/africa.jpg') no-repeat center center fixed;
   background-size: cover;
 }
-
-
 
 h1 {
   font-size: 3rem;
@@ -80,6 +88,7 @@ p {
     width: 50px;
     height: 50px;
   }
+
 }
 .title {
   text-align: center;
@@ -87,6 +96,12 @@ p {
   margin-bottom: 20px;
   color: #fff;
   text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.3);
+  padding: 15px;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 700px;
+  margin: 30px auto 20px;
 }
 
 .title h1 {
@@ -99,11 +114,4 @@ p {
   font-size: 1.6rem;
   font-weight: 300;
 }
-.title {
-  background: rgba(0, 0, 0, 0.3);
-  padding: 15px;
-  border-radius: 10px;
-  width: 80%;
-  max-width: 700px;
-  margin: 30px auto 20px;
-}
+
