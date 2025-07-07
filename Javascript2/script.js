@@ -27,7 +27,7 @@ function playSound(e) {
   audio.play();
 }
 
-// Also allow clicking with mouse
+//  allow clicking with mouse
 function playSoundByClick(e) {
   const keyDiv = e.currentTarget;
   const keyCode = keyDiv.getAttribute('data-key');
