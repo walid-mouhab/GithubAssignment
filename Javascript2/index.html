@@ -1,15 +1,40 @@
+
+<!-- 
+  Walid Mouhab  
+  07/06/2025 
+ Animal Sound Drum Kit
+  Adapted from Wes Bos' JavaScript30: https://github.com/wesbos/JavaScript30  
+
+What I Changed:
+  - Used animal sounds instead of drum sounds
+  - Changed letters to animal names
+  - Added animal pictures (JPG icons)
+  - Set a forest photo as background (africa.jpg)
+  - Styled and centered the title and text
+  - Made icons bigger and mobile-friendly
+  - You can use keyboard or click the animals to play sounds
+ Image Sources:
+  - Animal icons from Freepik and Pixabay
+    (https://www.freepik.com)
+    (https://pixabay.com)
+  - Background photo from Pexels:   "Bushes on arid plains" by Pixabay (https://www.pexels.com/photo/group-of-animals-standing-on-dry-grass-field-17391185/)
+
+  Sound Sources:
+  - Animal sound effects downloaded from Pixabay
+    (https://pixabay.com/sound-effects/)
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+   <title>Animal Sound Drum Kit</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
  <div class="title">
   <h1>Animal Sound Drum Kit</h1>
   <p>Click an animal or press the keys A–L to hear them!</p>
 </div>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
 <div class="keys">
   <div data-key="65" class="key"><img src="icons/dog.jpg" alt="Dog" class="animal-icon"><span class="sound">Dog</span></div>
   <div data-key="83" class="key"><img src="icons/cat.jpg" alt="Cat" class="animal-icon"><span class="sound">Cat</span></div>
