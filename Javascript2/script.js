@@ -1,3 +1,17 @@
+/* 
+   Walid Mouhab  
+  07/06/2025 
+ Animal Sound Drum Kit
+  Adapted from Wes Bos' JavaScript30: https://github.com/wesbos/JavaScript30  
+
+  What I Improved:
+  - Kept the same logic from the original JavaScript30 Drum Kit
+  - Added support for clicking the animal icons (not just keyboard keys)
+  - Now users can play sounds by pressing keys A–L or clicking the images
+  - Used animal sounds and icons instead of drum sounds
+*/
+
+
 // Animal Drum Kit - Same base logic
 function removeTransition(e) {
   if (e.propertyName !== 'transform') return;
