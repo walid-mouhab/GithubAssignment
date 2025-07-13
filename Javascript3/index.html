@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Photo Editor – Upload & Modify</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h2> Photo Editor </h2>
+
+  <div class="photo-editor">
+    <input type="file" id="photoInput" accept="image/*">
+
+    <div class="photo-box">
+      <img id="uploadedPhoto" alt="Your uploaded photo" />
+    </div>
+
+    <div class="editor-controls">
+	 <button id="resetBtn">Reset</button>
+     <button id="downloadBtn">Download</button>
+      <label for="blurControl">Blur:</label>
+      <input type="range" id="blurControl" min="0" max="10" value="0">
+
+      <label for="brightnessControl">Brightness:</label>
+      <input type="range" id="brightnessControl" min="50" max="150" value="100">
+
+      <label for="scaleControl">Scale (Zoom):</label>
+      <input type="range" id="scaleControl" min="0.5" max="2" step="0.1" value="1">
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
