@@ -9,6 +9,7 @@
 // - Download the edited image using a canvas snapshot
 
 
+
 const inputs = document.querySelectorAll('.controls input');
 
 function handleUpdate() {
@@ -27,24 +28,32 @@ const uploadedPhoto = document.getElementById('uploadedPhoto');
 const blurControl = document.getElementById('blurControl');
 const brightnessControl = document.getElementById('brightnessControl');
 const scaleControl = document.getElementById('scaleControl');
+const bgColorPicker = document.getElementById('bgColorPicker'); // 🔸 NEW
+const photoBox = document.querySelector('.photo-box'); // 🔸 NEW
 
-// Load image from file input
+//  Load image from file input
 photoInput.addEventListener('change', function () {
   const file = this.files[0];
   if (file) {
     uploadedPhoto.src = URL.createObjectURL(file);
+    uploadedPhoto.style.display = 'block';
+    photoBox.style.backgroundColor = 'transparent'; // remove background color
+    photoBox.style.backgroundImage = 'none';
   }
 });
 
-//   filters to uploaded image
+//  Apply filters to uploaded image
 function updateImageStyles() {
   if (uploadedPhoto.style.display === 'none') {
-
+    
     photoBox.style.filter = `blur(${blurControl.value}px) brightness(${brightnessControl.value}%)`;
   } else {
+     
     uploadedPhoto.style.filter = `blur(${blurControl.value}px) brightness(${brightnessControl.value}%)`;
     photoBox.style.filter = 'none'; // Reset box filter
   }
+
+   
   uploadedPhoto.style.transform = `scale(${scaleControl.value})`;
 }
 
@@ -62,6 +71,7 @@ resetBtn.addEventListener('click', () => {
   scaleControl.value = 1;
   updateImageStyles();
 });
+
 
 //  Download Button
 const downloadBtn = document.getElementById('downloadBtn');
@@ -82,15 +92,14 @@ downloadBtn.addEventListener('click', () => {
   link.download = 'edited-image.png';
   link.href = canvas.toDataURL('image/png');
   link.click();
-}); 
-//  Background Color Picker
-const bgColorPicker = document.getElementById('bgColorPicker');
-const photoBox = document.querySelector('.photo-box');
+});
 
+
+//  Background Color Picker (NEW)
 bgColorPicker.addEventListener('input', () => {
-  uploadedPhoto.style.display = 'none';
-  photoBox.style.backgroundColor = bgColorPicker.value;
-  photoBox.style.backgroundImage = 'none';
+  uploadedPhoto.style.display = 'none'; // hide image
+  photoBox.style.backgroundColor = bgColorPicker.value; // set color
+  photoBox.style.backgroundImage = 'none'; // clear image
 });
 
 
