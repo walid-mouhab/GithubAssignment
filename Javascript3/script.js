@@ -1,7 +1,13 @@
 // Walid Mouhab | 07/13/2025  
-// Adapted from Wes Bos' JavaScript30  
-//  Kept original CSS variable handling  
-//  Added photo upload, filter controls, reset & download functionality  
+// Adapted from Wes Bos' JavaScript30: https://github.com/wesbos/JavaScript30  
+// Additional help from: https://stackoverflow.com  
+//
+//  new functionality:
+// - Upload an image
+// - Apply filters: blur, brightness, zoom
+// - Reset the filters
+// - Download the edited image using a canvas snapshot
+
 
 const inputs = document.querySelectorAll('.controls input');
 
