@@ -95,7 +95,7 @@ downloadBtn.addEventListener('click', () => {
 });
 
 
-//  Background Color Picker (NEW)
+//  Background Color Picker
 bgColorPicker.addEventListener('input', () => {
   uploadedPhoto.style.display = 'none'; // hide image
   photoBox.style.backgroundColor = bgColorPicker.value; // set color
