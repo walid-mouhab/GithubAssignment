@@ -1,4 +1,16 @@
-/* Global styles */
+/* 
+  Walid Mouhab | 07/13/2025  
+
+  Adapted from Wes Bos' JavaScript30: https://github.com/wesbos/JavaScript30  
+  Additional help from: https://stackoverflow.com  
+
+  This stylesheet enhances the original JS30 design with:
+  - A gradient background
+  - A frosted-glass-style photo editor box
+  - Styled sliders and buttons
+  - Responsive layout for smaller screens
+*/
+
 body {
   text-align: center;
   background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
@@ -8,14 +20,14 @@ body {
   padding: 20px;
 }
 
-/* Header */
+  
 h2 {
   font-size: 2.5rem;
   margin-bottom: 30px;
   color: #ffc107;
 }
 
-/* Editor container */
+ 
 .photo-editor {
   margin: 0 auto;
   max-width: 700px;
@@ -24,7 +36,7 @@ h2 {
   align-items: center;
 }
 
-/* Image box */
+ 
 .photo-box {
   width: 800px;
   height: 800px;
@@ -49,7 +61,7 @@ h2 {
   transition: all 0.3s ease;
 }
 
-/* Controls */
+ 
 .editor-controls {
   margin-top: 30px;
   width: 100%;
@@ -64,7 +76,7 @@ h2 {
   text-align: left;
 }
 
-/* Range sliders */
+  
 .editor-controls input[type="range"] {
   width: 100%;
   margin-top: 5px;
