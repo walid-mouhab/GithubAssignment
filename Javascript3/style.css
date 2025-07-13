@@ -1,6 +1,5 @@
 /* 
   Walid Mouhab | 07/13/2025  
-
   Adapted from Wes Bos' JavaScript30: https://github.com/wesbos/JavaScript30  
   Additional help from: https://stackoverflow.com  
 
@@ -11,6 +10,7 @@
   - Responsive layout for smaller screens
 */
 
+ 
 body {
   text-align: center;
   background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
@@ -20,7 +20,6 @@ body {
   padding: 20px;
 }
 
-  
 h2 {
   font-size: 2.5rem;
   margin-bottom: 30px;
@@ -36,7 +35,6 @@ h2 {
   align-items: center;
 }
 
- 
 .photo-box {
   width: 800px;
   height: 800px;
@@ -76,7 +74,6 @@ h2 {
   text-align: left;
 }
 
-  
 .editor-controls input[type="range"] {
   width: 100%;
   margin-top: 5px;
@@ -98,37 +95,7 @@ h2 {
   box-shadow: 0 0 2px #000;
 }
 
-input[type="file"] {
-  margin: 15px 0;
-  padding: 6px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  background: #fff;
-  color: #333;
-  font-size: 14px;
-  cursor: pointer;
-}
-.editor-buttons {
-  margin-top: 20px;
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-}
-
-.editor-buttons button {
-  padding: 10px 20px;
-  background-color: #ffc107;
-  color: #000;
-  border: none;
-  border-radius: 6px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.editor-buttons button:hover {
-  background-color: #e0a800;
-}
+ 
 input[type="file"] {
   margin: 15px 0;
   padding: 10px 16px;
@@ -154,7 +121,30 @@ input[type="file"]::file-selector-button:hover {
   background-color: #e0a800;
 }
 
+ 
+.editor-buttons {
+  margin-top: 20px;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
 
+.editor-buttons button {
+  padding: 10px 20px;
+  background-color: #ffc107;
+  color: #000;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.editor-buttons button:hover {
+  background-color: #e0a800;
+}
+
+ 
 @media (max-width: 600px) {
   .photo-box {
     width: 90vw;
