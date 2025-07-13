@@ -1,4 +1,8 @@
-// 🟡 ORIGINAL JavaScript30 code: update CSS variables from sliders
+// Walid Mouhab | 07/13/2025  
+// Adapted from Wes Bos' JavaScript30  
+//  Kept original CSS variable handling  
+//  Added photo upload, filter controls, reset & download functionality  
+
 const inputs = document.querySelectorAll('.controls input');
 
 function handleUpdate() {
@@ -10,7 +14,7 @@ inputs.forEach(input => input.addEventListener('change', handleUpdate));
 inputs.forEach(input => input.addEventListener('mousemove', handleUpdate));
 
 
-// 🟢 NEW: Photo Editor Controls
+//  Photo Editor Controls
 const photoInput = document.getElementById('photoInput');
 const uploadedPhoto = document.getElementById('uploadedPhoto');
 
@@ -18,7 +22,7 @@ const blurControl = document.getElementById('blurControl');
 const brightnessControl = document.getElementById('brightnessControl');
 const scaleControl = document.getElementById('scaleControl');
 
-// 🖼️ Load image from file input
+// Load image from file input
 photoInput.addEventListener('change', function () {
   const file = this.files[0];
   if (file) {
@@ -26,7 +30,7 @@ photoInput.addEventListener('change', function () {
   }
 });
 
-// 🎛️ Apply filters to uploaded image
+//   filters to uploaded image
 function updateImageStyles() {
   uploadedPhoto.style.filter = `blur(${blurControl.value}px) brightness(${brightnessControl.value}%)`;
   uploadedPhoto.style.transform = `scale(${scaleControl.value})`;
@@ -37,7 +41,7 @@ brightnessControl.addEventListener('input', updateImageStyles);
 scaleControl.addEventListener('input', updateImageStyles);
 
 
-// 🔁 Reset Button
+//  Reset Button
 const resetBtn = document.getElementById('resetBtn');
 resetBtn.addEventListener('click', () => {
   blurControl.value = 0;
@@ -46,7 +50,7 @@ resetBtn.addEventListener('click', () => {
   updateImageStyles();
 });
 
-// 📥 Download Button
+//  Download Button
 const downloadBtn = document.getElementById('downloadBtn');
 downloadBtn.addEventListener('click', () => {
   const canvas = document.createElement('canvas');
