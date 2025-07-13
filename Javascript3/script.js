@@ -38,9 +38,16 @@ photoInput.addEventListener('change', function () {
 
 //   filters to uploaded image
 function updateImageStyles() {
-  uploadedPhoto.style.filter = `blur(${blurControl.value}px) brightness(${brightnessControl.value}%)`;
+  if (uploadedPhoto.style.display === 'none') {
+
+    photoBox.style.filter = `blur(${blurControl.value}px) brightness(${brightnessControl.value}%)`;
+  } else {
+    uploadedPhoto.style.filter = `blur(${blurControl.value}px) brightness(${brightnessControl.value}%)`;
+    photoBox.style.filter = 'none'; // Reset box filter
+  }
   uploadedPhoto.style.transform = `scale(${scaleControl.value})`;
 }
+
 
 blurControl.addEventListener('input', updateImageStyles);
 brightnessControl.addEventListener('input', updateImageStyles);
@@ -75,5 +82,15 @@ downloadBtn.addEventListener('click', () => {
   link.download = 'edited-image.png';
   link.href = canvas.toDataURL('image/png');
   link.click();
+}); 
+//  Background Color Picker
+const bgColorPicker = document.getElementById('bgColorPicker');
+const photoBox = document.querySelector('.photo-box');
+
+bgColorPicker.addEventListener('input', () => {
+  uploadedPhoto.style.display = 'none';
+  photoBox.style.backgroundColor = bgColorPicker.value;
+  photoBox.style.backgroundImage = 'none';
 });
+
 
