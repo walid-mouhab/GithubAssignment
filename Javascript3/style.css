@@ -143,6 +143,15 @@ input[type="file"]::file-selector-button:hover {
 .editor-buttons button:hover {
   background-color: #e0a800;
 }
+.color-picker {
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  font-size: 1rem;
+  color: #fff;
+}
 
  
 @media (max-width: 600px) {
