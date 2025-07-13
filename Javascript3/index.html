@@ -26,17 +26,30 @@
 
   <div class="photo-editor">
 
-    <input type="file" id="photoInput" accept="image/*">
-<div class="color-picker">
-  <label for="bgColorPicker">Choose Color:</label>
-  <input type="color" id="bgColorPicker" value="#222222">
-</div>
+    <!--  Mode Toggle -->
+    <div class="mode-toggle">
+      <label><input type="radio" name="mode" value="image" checked> Image</label>
+      <label><input type="radio" name="mode" value="color"> Color</label>
+    </div>
+
+    <!--  Image Upload  -->
+    <div id="imageInputWrapper">
+      <input type="file" id="photoInput" accept="image/*">
+    </div>
+
+    <!--  Color Picker -->
+    <div class="color-picker">
+      <label for="bgColorPicker">Choose Box Color:</label>
+      <input type="color" id="bgColorPicker" value="#00cc44">
+    </div>
+
+    <!--  Display Box -->
     <div class="photo-box">
       <img id="uploadedPhoto" alt="Your uploaded photo" />
     </div>
 
+    <!--  Sliders -->
     <div class="editor-controls">
-	
       <label for="blurControl">Blur:</label>
       <input type="range" id="blurControl" min="0" max="10" value="0">
 
@@ -46,12 +59,16 @@
       <label for="scaleControl">Scale (Zoom):</label>
       <input type="range" id="scaleControl" min="0.5" max="2" step="0.1" value="1">
     </div>
+
+    <!-- 🔘 Buttons -->
     <div class="editor-buttons">
       <button id="resetBtn">Reset</button>
       <button id="downloadBtn">Download</button>
-     </div>
     </div>
+
+  </div>
 
   <script src="script.js"></script>
 </body>
 </html>
+
