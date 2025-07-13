@@ -36,19 +36,12 @@ h2 {
 }
 
 .photo-box {
-  width: 800px;
-  height: 800px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 2px solid rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  backdrop-filter: blur(4px);
-  margin-top: 20px;
+  background-color: #222; /* default background */
+  background-image: none;
+  background-size: cover;
+  background-position: center;
 }
+
 
 .photo-box img {
   max-width: 100%;
