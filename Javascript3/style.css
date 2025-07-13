@@ -38,7 +38,10 @@ h2 {
 .photo-box {
   width: 800px;
   height: 800px;
-  background: rgba(255, 255, 255, 0.05);
+  background-color: #00cc44;              
+  background-image: none;              
+  background-size: cover;
+  background-position: center;
   border: 2px solid rgba(255, 255, 255, 0.1);
   border-radius: 16px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
