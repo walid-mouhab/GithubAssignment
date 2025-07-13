@@ -10,6 +10,7 @@
 
 
 
+
 const inputs = document.querySelectorAll('.controls input');
 
 function handleUpdate() {
@@ -20,7 +21,6 @@ function handleUpdate() {
 inputs.forEach(input => input.addEventListener('change', handleUpdate));
 inputs.forEach(input => input.addEventListener('mousemove', handleUpdate));
 
-
 //  Photo Editor Controls
 const photoInput = document.getElementById('photoInput');
 const uploadedPhoto = document.getElementById('uploadedPhoto');
@@ -28,8 +28,8 @@ const uploadedPhoto = document.getElementById('uploadedPhoto');
 const blurControl = document.getElementById('blurControl');
 const brightnessControl = document.getElementById('brightnessControl');
 const scaleControl = document.getElementById('scaleControl');
-const bgColorPicker = document.getElementById('bgColorPicker'); // 🔸 NEW
-const photoBox = document.querySelector('.photo-box'); // 🔸 NEW
+const bgColorPicker = document.getElementById('bgColorPicker');
+const photoBox = document.querySelector('.photo-box');
 
 //  Load image from file input
 photoInput.addEventListener('change', function () {
@@ -37,31 +37,25 @@ photoInput.addEventListener('change', function () {
   if (file) {
     uploadedPhoto.src = URL.createObjectURL(file);
     uploadedPhoto.style.display = 'block';
-    photoBox.style.backgroundColor = 'transparent'; // remove background color
+    photoBox.style.backgroundColor = 'transparent';
     photoBox.style.backgroundImage = 'none';
   }
 });
 
-//  Apply filters to uploaded image
+//  Apply filters to image or background
 function updateImageStyles() {
   if (uploadedPhoto.style.display === 'none') {
-    
     photoBox.style.filter = `blur(${blurControl.value}px) brightness(${brightnessControl.value}%)`;
   } else {
-     
     uploadedPhoto.style.filter = `blur(${blurControl.value}px) brightness(${brightnessControl.value}%)`;
-    photoBox.style.filter = 'none'; // Reset box filter
+    photoBox.style.filter = 'none';
   }
-
-   
   uploadedPhoto.style.transform = `scale(${scaleControl.value})`;
 }
-
 
 blurControl.addEventListener('input', updateImageStyles);
 brightnessControl.addEventListener('input', updateImageStyles);
 scaleControl.addEventListener('input', updateImageStyles);
-
 
 //  Reset Button
 const resetBtn = document.getElementById('resetBtn');
@@ -72,7 +66,6 @@ resetBtn.addEventListener('click', () => {
   updateImageStyles();
 });
 
-
 //  Download Button
 const downloadBtn = document.getElementById('downloadBtn');
 downloadBtn.addEventListener('click', () => {
@@ -80,7 +73,7 @@ downloadBtn.addEventListener('click', () => {
   const ctx = canvas.getContext('2d');
   const img = uploadedPhoto;
 
-  if (!img.src) return; // No image uploaded
+  if (!img.src) return;
 
   canvas.width = img.naturalWidth;
   canvas.height = img.naturalHeight;
@@ -94,12 +87,36 @@ downloadBtn.addEventListener('click', () => {
   link.click();
 });
 
-
 //  Background Color Picker
 bgColorPicker.addEventListener('input', () => {
-  uploadedPhoto.style.display = 'none'; // hide image
-  photoBox.style.backgroundColor = bgColorPicker.value; // set color
-  photoBox.style.backgroundImage = 'none'; // clear image
+  uploadedPhoto.style.display = 'none';
+  photoBox.style.backgroundColor = bgColorPicker.value;
+  photoBox.style.backgroundImage = 'none';
 });
+
+//  Mode Toggle: "Image" or "Color"
+const modeRadios = document.querySelectorAll('input[name="mode"]');
+
+function updateModeUI(mode) {
+  if (mode === 'image') {
+    photoInput.style.display = 'block';
+    uploadedPhoto.style.display = 'block';
+    bgColorPicker.parentElement.style.display = 'none';
+    photoBox.style.backgroundColor = 'transparent';
+  } else {
+    photoInput.style.display = 'none';
+    uploadedPhoto.style.display = 'none';
+    bgColorPicker.parentElement.style.display = 'flex';
+    photoBox.style.backgroundColor = bgColorPicker.value;
+  }
+}
+
+modeRadios.forEach(radio => {
+  radio.addEventListener('change', () => {
+    updateModeUI(radio.value);
+  });
+});
+
+updateModeUI('image'); // set default mode on load
 
 
