@@ -117,6 +117,6 @@ modeRadios.forEach(radio => {
   });
 });
 
-updateModeUI('image'); // set default mode on load
+updateModeUI('image'); 
 
 
