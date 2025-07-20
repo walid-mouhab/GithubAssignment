@@ -1,0 +1,45 @@
+
+<!-- 
+ Walid Mouhab | 07/20/2025
+
+  Based on Wes Bos' JavaScript30 - Mouse Shadow project
+
+  I added and improved:
+  - A modern animated gradient background
+  - A styled input box with a prompt to enter a custom name
+  - Five rainbow-colored circles that follow the mouse
+  - Modern CSS effects (shadows, transitions, responsive layout)
+
+  Help and references:
+  - "Coding Sameer" Facebook page
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mouse Shadow + Circles</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="hero">
+    <h1 id="shadowText">JavaScript</h1>
+  </div>
+
+  <div class="name-input">
+    <label for="nameField">Enter name :</label><br>
+    <input type="text" id="nameField" placeholder="Type your name..." />
+  </div>
+
+  <!-- Colorful circles -->
+  <div class="circles">
+    <div class="circle red"></div>
+    <div class="circle orange"></div>
+    <div class="circle yellow"></div>
+    <div class="circle green"></div>
+    <div class="circle blue"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
