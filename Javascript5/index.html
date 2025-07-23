@@ -1,0 +1,104 @@
+<!--
+  Walid Mouhab | 07/20/2025
+  Based on Wes Bos' JavaScript30 - Type Ahead project
+
+  Improvements:
+  - Changed dataset from U.S. cities to Periodic Table elements
+  - Displays name, symbol, and atomic number
+  - Styled suggestions with modern colors and background
+  - Data source: Bowserinator GitHub JSON
+  - Help from "Coding Sameer" Facebook page
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Periodic Table Lookup</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>🔬 Periodic Table Lookup 🔬</h1>
+  </header>
+
+  <div class="search-form">
+    <input type="text" class="search" placeholder="Type an element or symbol..." />
+  </div>
+
+  <ul class="suggestions"></ul>
+
+  <div id="detailsBox" class="element-details hidden"></div>
+
+  <footer>
+    <p>
+      Background image <a href="http://www.freepik.com">Designed by Freepik</a>
+    </p>
+  </footer>
+
+  <script>
+    const endpoint = 'https://raw.githubusercontent.com/Bowserinator/Periodic-Table-JSON/master/PeriodicTableJSON.json';
+    const elements = [];
+
+    fetch(endpoint)
+      .then(res => res.json())
+      .then(data => elements.push(...data.elements));
+
+    const searchInput = document.querySelector('.search');
+    const suggestions = document.querySelector('.suggestions');
+    const detailsBox = document.getElementById('detailsBox');
+
+    function findMatches(wordToMatch, list) {
+      const regex = new RegExp(wordToMatch, 'i');
+      return list.filter(el => el.name.match(regex) || el.symbol.match(regex));
+    }
+
+    function displayMatches() {
+      const matchArray = findMatches(this.value, elements);
+      const html = matchArray.map(el => {
+        const regex = new RegExp(this.value, 'gi');
+        const name = el.name.replace(regex, `<span class="hl">${this.value}</span>`);
+        const symbol = el.symbol.replace(regex, `<span class="hl">${this.value}</span>`);
+        return `
+          <li class="element-item" data-symbol="${el.symbol}">
+            <span class="name">${name} (${symbol})</span>
+            <span class="atomic">#${el.number}</span>
+          </li>
+        `;
+      }).join('');
+      suggestions.innerHTML = html;
+      detailsBox.classList.add('hidden');
+    }
+
+    function showDetails(symbol) {
+  const el = elements.find(e => e.symbol === symbol);
+  if (!el) return;
+
+  detailsBox.innerHTML = `
+    <h2>${el.name} (${el.symbol})</h2>
+    <p><strong>Atomic Number:</strong> ${el.number}</p>
+    <p><strong>Atomic Mass:</strong> ${el.atomic_mass}</p>
+    <p><strong>Category:</strong> ${el.category}</p>
+    <p><strong>Phase:</strong> ${el.phase}</p>
+    <p><strong>Electron Configuration:</strong> ${el.electron_configuration}</p>
+    <p><strong>Summary:</strong> ${el.summary}</p>
+  `;
+
+  // 👇 hide suggestions
+  suggestions.innerHTML = '';
+  detailsBox.classList.remove('hidden');
+}
+
+
+    suggestions.addEventListener('click', e => {
+      const li = e.target.closest('li');
+      if (!li || !li.dataset.symbol) return;
+      const symbol = li.dataset.symbol;
+      showDetails(symbol);
+    });
+
+    searchInput.addEventListener('input', displayMatches);
+  </script>
+</body>
+</html>
